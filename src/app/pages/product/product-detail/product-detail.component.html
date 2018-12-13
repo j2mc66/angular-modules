@@ -1,0 +1,7 @@
+<h1>Products Details</h1>
+<h3>Product information:</h3>
+<div *ngIf="product | async">
+    <p>id: {{(product | async)?.id}} - name: {{(product | async)?.name}}</p>
+</div>
+<br>
+<a routerLink="/pages/product/list">Go To Products List</a>

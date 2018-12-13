@@ -1,0 +1,42 @@
+<h3>register user</h3>
+<form [formGroup]="form" *ngIf="isForm | async; else loading" (submit)="onSubmit()">
+    <div class="form-group">
+      <label for="numberId">Number Id</label>
+      <input type="number" class="form-control" id="numberId" formControlName="numberId">
+      <app-field-error-display [displayError]="isFieldValid(form, 'numberId', 'required')" 
+        errorMsg="Please inform your numberId">
+      </app-field-error-display>
+      <app-field-error-display [displayError]="isFieldValid(form, 'numberId', 'min')" 
+        errorMsg="Please set numberId min 0">
+      </app-field-error-display>
+    </div>
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input class="form-control" id="firstName" formControlName="firstName">
+    <app-field-error-display [displayError]="isFieldValid(form, 'firstName', 'required')" 
+      errorMsg="Please inform your firstName">
+    </app-field-error-display>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input class="form-control" id="lastName" formControlName="lastName">
+    <app-field-error-display [displayError]="isFieldValid(form, 'lastName', 'required')" 
+      errorMsg="Please inform your lastName">
+    </app-field-error-display>
+  </div>
+  <div class="form-group" formGroupName="typeId">
+    <label for="typeId">Type Id</label>
+    <select class="form-control" id="typeId" formControlName="id">
+      <option value="null">-Selected-</option>
+      <option [value]="1">CC</option>
+      <option [value]="2">TI</option>
+    </select>
+  </div>
+  <div>
+    <button class="btn btn-susses" type="submit">Guardar</button>
+    <button class="btn btn-warning" type="button">Cancelar</button>
+  </div>
+</form>
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>

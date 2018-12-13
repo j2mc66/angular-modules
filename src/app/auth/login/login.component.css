@@ -1,0 +1,21 @@
+.login-page {
+width: 360px;
+padding: 8% 0 0;
+margin: auto;
+}
+
+.title{
+    width: 100%;
+    display: block;
+    line-height: 1.2;
+    text-align: center;
+}
+.form {
+position: relative;
+z-index: 1;
+background: #FFFFFF;
+max-width: 360px;
+margin: 0 auto 100px;
+padding: 45px;
+box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
