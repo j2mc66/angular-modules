@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { swal } from 'sweetalert';
+import swal from 'sweetalert';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ export class AlertService {
 
   constructor() { }
 
-  private alert(text: string, title: string = null, icon) {
+  alert(text: string, title: string = null, icon: string = null) {
     return swal({
         title: title ? title : text,
         text: title ? text : null,
@@ -48,12 +48,5 @@ export class AlertService {
               }
           });
       });
-  }
-
-  alertRedirect(text: string, title: string = null) {
-      return swal({
-              title: title,
-              text: text,
-          });
   }
 }
