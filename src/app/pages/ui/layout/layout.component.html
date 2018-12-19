@@ -1,6 +1,10 @@
 <app-header></app-header>
-<app-sidebar></app-sidebar>
-<div class="container-fluid">
-  <router-outlet></router-outlet>
+<div id="wrapper">
+  <app-sidebar></app-sidebar>
+  <div id="content-wrapper">
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
 <app-footer></app-footer>
