@@ -25,11 +25,7 @@ export class RegisterComponent extends FormValidate implements OnInit {
     this.isForm = Promise.resolve(
       this.form = this.formBuilder.group({
         firstName: [user.firstName, Validators.required],
-        lastName: [user.lastName, Validators.required],
-        numberId: [user.numberId, [Validators.required, Validators.min(0)]],
-        typeId: this.formBuilder.group({
-          id: [user.typeId? user.typeId.id : null]
-        })
+        lastName: [user.lastName, Validators.required]
       })
     );
     //this.form.controls.typeId.disable();
