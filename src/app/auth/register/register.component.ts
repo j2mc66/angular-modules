@@ -56,7 +56,6 @@ export class RegisterComponent extends FormValidate implements OnInit {
       return;
     }else{
       const user = this.prepareData();
-      console.log(user);
       this.initForm(user);
     }
   }

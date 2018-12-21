@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UiService } from '../ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-layout',
@@ -7,16 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  active: boolean = true;
+  isFixed: boolean;
+  subscription: Subscription;
 
-  constructor() { }
+  constructor(private uiService: UiService) { }
 
   ngOnInit() {
+    this.subscription = this.uiService.fixed$
+      .subscribe(fixed => this.isFixed = fixed)
   }
-  
-  getActive(active){
-    this.active = active;
-  }
-    
   
 }

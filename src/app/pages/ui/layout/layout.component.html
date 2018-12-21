@@ -1,10 +1,9 @@
-<app-header (active)="getActive($event)"></app-header>
-<app-sidebar [active]="active"></app-sidebar>
-<div id="wrapper">  
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div id="wrapper" [ngClass]="{'sidebar-toggled' : isFixed}">  
   <div id="content-wrapper" >
     <div class="container-fluid">
       <router-outlet></router-outlet>
-      {{active}}
     </div>
   </div>
 </div>

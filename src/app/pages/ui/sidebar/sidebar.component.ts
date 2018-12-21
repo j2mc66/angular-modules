@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UiService } from '../ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,12 +9,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  @Input('active')
-  active: boolean;
+  isFixed: boolean;
+  subscription: Subscription;
 
-  constructor() { }
+  constructor(private uiService: UiService) { }
 
   ngOnInit() {
+    this.subscription = this.uiService.fixed$
+      .subscribe(fixed => this.isFixed = fixed)
   }
 
 }
