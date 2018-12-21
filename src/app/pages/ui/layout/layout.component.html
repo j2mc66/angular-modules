@@ -1,4 +1,4 @@
-<app-header [active]="active"></app-header>
+<app-header (active)="getActive($event)"></app-header>
 <app-sidebar [active]="active"></app-sidebar>
 <div id="wrapper">  
   <div id="content-wrapper" >
