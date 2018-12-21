@@ -14,4 +14,9 @@ export class LayoutComponent implements OnInit {
   ngOnInit() {
   }
   
+  getActive(active){
+    this.active = active;
+  }
+    
+  
 }
