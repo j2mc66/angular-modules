@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
+  active: boolean = true;
+
   constructor() { }
 
   ngOnInit() {
   }
-
+  
 }

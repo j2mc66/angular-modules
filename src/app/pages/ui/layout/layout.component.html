@@ -1,9 +1,10 @@
-<app-header></app-header>
-<div id="wrapper">
-  <app-sidebar></app-sidebar>
-  <div id="content-wrapper">
+<app-header [active]="active"></app-header>
+<app-sidebar [active]="active"></app-sidebar>
+<div id="wrapper">  
+  <div id="content-wrapper" >
     <div class="container-fluid">
       <router-outlet></router-outlet>
+      {{active}}
     </div>
   </div>
 </div>
