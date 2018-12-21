@@ -6,9 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  @Input('active')
-  active: boolean;
+  
+  @Output('active') active = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -16,8 +15,7 @@ export class HeaderComponent implements OnInit {
   }
 
   toggle(active){
-    console.log(active);
-    this.active = active;
+    this.active.emit(active);
   }
 
 }
