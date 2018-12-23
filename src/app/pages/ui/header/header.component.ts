@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UiService } from '../ui.service';
 import { Subscription } from 'rxjs';
+import { AuthenticationService } from '@/services';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class HeaderComponent implements OnInit {
   isFixed: boolean;
   subscription: Subscription;
   
-  constructor(private uiService: UiService) { }
+  constructor(private uiService: UiService,
+    private authService: AuthenticationService) { }
 
   ngOnInit() {
     this.subscription = this.uiService.fixed$
@@ -23,6 +25,10 @@ export class HeaderComponent implements OnInit {
   toggle(isFixed){
     this.isFixed = isFixed;
     this.uiService.setIsFixed(isFixed);
+  }
+
+  logout(){
+    this.authService.logout();
   }
 
 }

@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class UiService {
 
-  private fixed = new BehaviorSubject<boolean>(true);
+  private fixed = new BehaviorSubject<boolean>(false);
   fixed$ = this.fixed.asObservable();
 
   constructor(){}

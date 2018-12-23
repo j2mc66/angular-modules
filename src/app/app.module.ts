@@ -3,15 +3,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { AuthComponent } from './auth/auth.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { RequestPasswordComponent } from './auth/request-password/request-password.component';
-import { FieldErrorDisplayComponent } from './field-error-display/field-error-display.component';
 
-import { JwtInterceptor, ErrorInterceptor } from './helpers';
+import { JwtInterceptor, ErrorInterceptor } from '@/interceptors';
+
 
 @NgModule({
   declarations: [
@@ -19,15 +20,15 @@ import { JwtInterceptor, ErrorInterceptor } from './helpers';
     LoginComponent,
     AuthComponent,
     RegisterComponent,
-    RequestPasswordComponent,
-    FieldErrorDisplayComponent,
+    RequestPasswordComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
+    BrowserModule,    
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CoreModule,
+    AppRoutingModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
