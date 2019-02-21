@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import swal from 'sweetalert';
+import Swal, { SweetAlertType } from 'sweetalert2'
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +8,13 @@ export class AlertService {
 
   constructor() { }
 
-  private alert(text: string, title: string = null, icon: string = null) {
-    return swal({
+  private alert(text: string, title: string = null, icon: SweetAlertType = null) {
+    return Swal({
+        type: icon,
         title: title ? title : text,
-        text: title ? text : null,
-        icon: icon,
-        closeOnClickOutside: false,
-        closeOnEsc: false,
+        text: title ? text : null,        
+        allowOutsideClick: false,
+        allowEscapeKey: false,
     });
   }
 
@@ -35,14 +35,14 @@ export class AlertService {
   }
 
   confirm(text: string, danger: boolean = false, title: string = 'Confirmación') {      
-    return swal({
+    return Swal({
         title: title,
         text: text,
-        icon: 'info',
-        buttons: ['Cancelar', 'Aceptar'],
-        dangerMode: danger,
-        closeOnClickOutside: false,
-        closeOnEsc: false,
+        type: 'info',
+        showCancelButton: true,
+        confirmButtonText: 'Aceptar',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
     })
   }
 }
